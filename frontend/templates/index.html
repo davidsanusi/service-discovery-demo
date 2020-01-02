@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API Explorer - Housing Data</title>
+</head>
+<body>
+ <h1>API Explorer - Housing Data</h1>
+    <p> This simple page is intended to demonstrate service discovery functionality with AWS ECS Service Discovery</p>
+    <p> Here, we have two services, <strong>frontend</strong>  and <strong>backend</strong>. The frontend is this page you are currently viewing. The backend is hosted as another service and provides a set of housing data api endpoints that can be called using the form below</p>
+    <p><strong>What to do:</strong> enter any of the available endpoints in the form and click on submit query</p>
+    <p><strong>What will happen:</strong> This frontend service will make a call to the backend service to get the data provided by the endpoint. The data is displayed in the section below the submit button.</p>
+    <p><strong>The ip address of the instance that serviced the request is also returned.</strong></p>
+    
+    <h3>Available endpoints : owners, color, location, type</h3> 
+    <form action="" method="post">
+        <p>
+            <label for="endpoint">Endpoint: </label>
+            <input type="text" name="endpoint">
+        </p>
+        <p>
+            <input type="submit">
+        </p>
+    </form>
+    <hr>
+    {% if message %}
+        <h3>Response</h3>
+        <p>{{ message }}</p>
+        <p>Request is served by instance {{message.ip}}</p>
+    {% endif %}
+    <hr>
+ 
+</body>
+</html>
