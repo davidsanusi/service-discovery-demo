@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import requests
 app = Flask(__name__)
 
+# Set service discovery name for the backend service
 base_address = "http://backend.demo.lab" 
 base_url=base_address
 
@@ -13,9 +14,9 @@ base_url=base_address
 def get_api():
     result = ''
     if request.method == 'POST':
-        username = request.form.get('endpoint')  # access the data inside 
-        print(username)# access the data inside 
-        resp = requests.get(f'{base_url}/{username}') # access the data inside 
+        username = request.form.get('endpoint') 
+        print(username) 
+        resp = requests.get(f'{base_url}/{username}')
 		
         if resp.status_code == 200:
             result = resp.json()
